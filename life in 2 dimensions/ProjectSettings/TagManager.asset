@@ -11,6 +11,7 @@ TagManager:
   - Coin
   - Trap
   - left_block
+  - OldPlayer
   layers:
   - Default
   - TransparentFX

@@ -33,7 +33,7 @@ public class HealthBar : MonoBehaviour
 
         if(currentHealth < 10)
         {
-            Debug.Log("Im here");
+            
             routine.Dream();
         }
     }
