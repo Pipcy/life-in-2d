@@ -10,9 +10,14 @@ public class HealthBar : MonoBehaviour
 
     private float initialBarWidth;
 
+    Routine routine;
+
     void Start()
     {
         initialBarWidth = healthBar.sizeDelta.x;
+
+        GameObject routinee =  GameObject.Find("Routine");
+        routine = routinee.GetComponent<Routine>();
     }
 
     void Update()
@@ -25,6 +30,16 @@ public class HealthBar : MonoBehaviour
         float healthPercentage = currentHealth / maxHealth;
         healthBar.sizeDelta = new Vector2(initialBarWidth * healthPercentage, healthBar.sizeDelta.y);
         //healthBar.anchoredPosition = new Vector2(-initialBarWidth / 2 + newWidth / 2, healthBar.anchoredPosition.y);
+
+        if(currentHealth < 10)
+        {
+            Debug.Log("Im here");
+            routine.Dream();
+        }
+    }
+
+    public void ResetHealth() {
+        currentHealth = 100f;
     }
 }
 
