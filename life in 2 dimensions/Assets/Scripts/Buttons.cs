@@ -13,15 +13,21 @@ public class Buttons : MonoBehaviour
     // public void Aintro(){
     //     SceneManager.LoadScene("intro"); }
 
+    public void Aintro(){
+        SceneManager.LoadScene("Intro"); }
+        
     public void Astart(){
         SceneManager.LoadScene("MainScene"); }
 
     
-    // public void Alose(){
-    //     SceneManager.LoadScene("EndingLost"); }
+    public void Alose(){
+        SceneManager.LoadScene("EndingLost"); }
 
-    // public void Acredit(){
-    //     SceneManager.LoadScene("credit"); }
+    public void Awin(){
+        SceneManager.LoadScene("EndingWin"); }
+
+    public void Acredit(){
+        SceneManager.LoadScene("credit"); }
 
 
 

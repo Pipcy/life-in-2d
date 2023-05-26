@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator spawnEnemy(float interval, GameObject enemy){
         yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-2f,2),Random.Range(-3f,3),0), Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-5f,5),Random.Range(-6f,6),0), Quaternion.identity);
         //GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         // AIDestinationSetter aiPathfinding = newEnemy.GetComponent<AIDestinationSetter>();
         // aiPathfinding.SetTarget(player);

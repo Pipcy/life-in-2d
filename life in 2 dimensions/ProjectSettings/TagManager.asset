@@ -12,6 +12,7 @@ TagManager:
   - Trap
   - left_block
   - OldPlayer
+  - OldPlayerAll
   layers:
   - Default
   - TransparentFX
