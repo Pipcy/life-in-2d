@@ -1,80 +1,55 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-
-// public class DoorTrigger : MonoBehaviour
-// {
-//     [SerializeField] GameObject door;
-//     // Start is called before the first frame update
-//     void Start()
-//     {
-//         door.GetComponent<BoxCollider2D>().enabled=true;//public BoxCollider2D collider
-//     }
-
-//     // Update is called once per frame
-//     void Update()
-//     {
-        
-//     }
-
-//     private void OnCollisionStay2D(Collision2D collision) { 
-//         if (collision.gameObject.tag == "Player") {
-//             Debug.Log("Found player");
-//             door.GetComponent<BoxCollider2D>().enabled=false;
-//         }
-//     }
-// }
-
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class DoorTrigger : MonoBehaviour
 {
-    public Button openDoorButton;
-    public GameObject doorObject;
+    public Button openDrawerButton;
+    public Button closeDrawerButton;
+    public Image Background;
+    public TextMeshProUGUI Clues;
     
-    private BoxCollider2D doorCollider;
-    private bool isPlayerInRange = false;
+
 
     private void Start()
     {
-        doorCollider = doorObject.GetComponent<BoxCollider2D>();
-        openDoorButton.gameObject.SetActive(false);
+        openDrawerButton.gameObject.SetActive(false);
+        closeDrawerButton.gameObject.SetActive(false);
+        Background.enabled = false;
+        Clues.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("OldPlayer"))
         {
-            //Debug.Log("See Player");
-            isPlayerInRange = true;
-            openDoorButton.gameObject.SetActive(true);
+            openDrawerButton.gameObject.SetActive(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("OldPlayer"))
         {
-            isPlayerInRange = false;
-            openDoorButton.gameObject.SetActive(false);
+            openDrawerButton.gameObject.SetActive(false);
         }
     }
 
-    public void OpenDoor()
+    public void OpenDrawer()
     {
-        doorCollider.enabled = false;
-        openDoorButton.gameObject.SetActive(false);
+        openDrawerButton.gameObject.SetActive(false);
+        closeDrawerButton.gameObject.SetActive(true);
+        Background.enabled = true;
+        Clues.enabled = true;
 
-        StartCoroutine(EnableColliderAfterDelay(3f));
     }
 
-    private IEnumerator EnableColliderAfterDelay(float delay)
+    public void CloseDrawer()
     {
-        yield return new WaitForSeconds(delay);
-
-        doorCollider.enabled = true;
+        closeDrawerButton.gameObject.SetActive(false);
+        Background.enabled = false;
+        Clues.enabled = false;
     }
+
 }
-
