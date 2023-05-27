@@ -13,6 +13,7 @@ TagManager:
   - left_block
   - OldPlayer
   - OldPlayerAll
+  - PlayerAttackRange
   layers:
   - Default
   - TransparentFX

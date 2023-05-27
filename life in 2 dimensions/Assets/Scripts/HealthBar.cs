@@ -22,20 +22,24 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        // Decrease health over time
-        currentHealth -= healthDecreaseRate * Time.deltaTime;
-        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
-
-        // Update health bar UI
-        float healthPercentage = currentHealth / maxHealth;
-        healthBar.sizeDelta = new Vector2(initialBarWidth * healthPercentage, healthBar.sizeDelta.y);
-        //healthBar.anchoredPosition = new Vector2(-initialBarWidth / 2 + newWidth / 2, healthBar.anchoredPosition.y);
-
-        if(currentHealth < 10)
+        if(routine.isDreaming == false)
         {
-            
-            routine.Dream();
+            // Decrease health over time
+            currentHealth -= healthDecreaseRate * Time.deltaTime;
+            currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+
+            // Update health bar UI
+            float healthPercentage = currentHealth / maxHealth;
+            healthBar.sizeDelta = new Vector2(initialBarWidth * healthPercentage, healthBar.sizeDelta.y);
+            //healthBar.anchoredPosition = new Vector2(-initialBarWidth / 2 + newWidth / 2, healthBar.anchoredPosition.y);
+
+            if(currentHealth < 10)
+            {
+                routine.Dream();
+            }
         }
+
+
     }
 
     public void ResetHealth() {
