@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     public float pauseTime = 2f; // Time in seconds to pause at each waypoint
 
     
-    NurseCatch nurse_catch;
+    // NurseCatch nurse_catch;
     OldPlayerMovement OPM;
 
     private int currentWaypointIndex = 0; // Index of the current waypoint
@@ -22,8 +22,8 @@ public class EnemyController : MonoBehaviour
     {
         aiPath = GetComponent<AIPath>(); // Get the reference to the AIPath component
 
-        GameObject nc =  GameObject.Find("nurse_catch"); 
-        nurse_catch = nc.GetComponent<NurseCatch>();
+        // GameObject nc =  GameObject.Find("nurse_catch"); 
+        // nurse_catch = nc.GetComponent<NurseCatch>();
 
         //player = GameObject.FindGameObjectWithTag("OldPlayerAll");
         op =  GameObject.Find("OldPlayer");
@@ -32,7 +32,8 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if(nurse_catch.PlayerCaught)
+        Debug.Log("caught?"+OPM.PlayerCaught );
+        if(OPM.PlayerCaught)
         {
             Debug.Log("Caught");
             // aiPath.enabled = true;
@@ -42,6 +43,8 @@ public class EnemyController : MonoBehaviour
             OPM.transform.position = spawnpoint.position;//reset player to spawn point
             //transform.position = waypoints[0].position; //reset nurse position (snap back)
             Patrol();
+
+            OPM.PlayerCaught = false;
         }
 
         //Debug.Log(player.transform.position);

@@ -7,6 +7,8 @@ public class DreamAttack : MonoBehaviour
     GameObject sword;
     private bool enemyInRange;//a small range, where enemy can hurt player
 
+    float period = 0;
+
     private float currentHealth;
     private float maxHealth = 100f;
     public bool dead = false;
@@ -23,7 +25,7 @@ public class DreamAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log("period: " + period + "         current Health: " + currentHealth);
         if (Input.GetMouseButtonDown(0)){
             Attack();
         }
@@ -38,6 +40,21 @@ public class DreamAttack : MonoBehaviour
     }
 
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy")) 
+            {   
+                period += UnityEngine.Time.deltaTime;
+                
+                if (period > 0.5f)//when ground color not equal to player color
+                {
+                    TakeDamage(2);
+                    period = 0;
+                }    
+            }
+            
+
+    }
     public void TakeDamage(float _damage)
     {
         

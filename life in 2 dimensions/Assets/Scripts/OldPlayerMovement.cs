@@ -10,6 +10,8 @@ public class OldPlayerMovement : MonoBehaviour
     //for jump
     private bool grounded;
     private Animator anim;
+
+    public bool PlayerCaught = false;
     
     void Start()
     {
@@ -40,6 +42,24 @@ public class OldPlayerMovement : MonoBehaviour
     // private void Jump() {
     //     body.velocity = new Vector2(body.velocity.x,speed);
     //     grounded = false; } 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Check if the player enters the enemy's range
+        if (collision.CompareTag("Enemy"))
+        {
+            PlayerCaught = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Check if the player exits the enemy's range
+        if (collision.CompareTag("Enmey"))
+        {
+            PlayerCaught = false;
+        }
+    }
 
 
 }
