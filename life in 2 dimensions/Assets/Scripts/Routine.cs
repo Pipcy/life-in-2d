@@ -22,8 +22,8 @@ public class Routine : MonoBehaviour
         GameObject healthh =  GameObject.Find("Health System");
         health = healthh.GetComponent<HealthBar>();
     
-        dreamAudio = GetComponent<AudioSource>();
-        realityAudio = GetComponent<AudioSource>();
+        // dreamAudio = GetComponent<AudioSource>();
+        // realityAudio = GetComponent<AudioSource>();
 
         realityAudio.Play();
         realityAudio.Pause();
@@ -50,25 +50,33 @@ public class Routine : MonoBehaviour
 
     public void Dream()
     {
-        isDreaming = true;
+
+        if(isDreaming == false){
+            dreamAudio.Play();
+            isDreaming = true;
+        }
 
         cam1.enabled = true;
         cam2.enabled = false;
         
         realityAudio.Pause();
-        dreamAudio.Play();
+        
     }
 
     public void WakeUp()
     {
-        isDreaming = false;
+        if(isDreaming){
+            realityAudio.Play();
+            isDreaming = false;
+        }
+        
 
         cam1.enabled = false;
         cam2.enabled = true;
 
         health.ResetHealth();
         dreamAudio.Pause();
-        realityAudio.Play();
+        
     }
 }
 

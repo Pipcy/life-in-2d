@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]private float speed;
     private Rigidbody2D body;
+    Vector2 mousePos;
 
     //for jump
     private bool grounded;
@@ -22,16 +23,35 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2 (horizontalInput * speed, body.velocity.y);
-        if (horizontalInput < 0f) // input ranges from -1 to 1, positive being right side
+        if (horizontalInput < -0.01f) // input ranges from -1 to 1, positive being right side
             transform.localScale = new Vector3(-5,5,5);//picture default move left(do nothing)
-         else if (horizontalInput >= 0f) 
+         else if (horizontalInput > 0.01f) 
             transform.localScale = new Vector3(5,5,5);
 
+        
         anim.SetBool("run", horizontalInput != 0);
+
+        // Vector2 lookDir = mousePos - body.position;
+        // float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 0f;
+        // body.rotation = angle;
+
+        // //Debug.Log(transform.position);
+
+        // //*** -90<angle<90 means the mouse rest on the right of the player
+        // if (angle > -90 && angle < 90) //shot front face front (normal)
+        // {
+        //     //Debug.Log("right");
+        //     body.rotation = angle;
+        // }else{ // shoot back face back
+        //     //Debug.Log("left");
+        //     transform.localScale = new Vector3(-5,-5,5);
+        // }
 
         //jump
         if (Input.GetKey(KeyCode.Space) && (grounded)) {
             Jump(); }
+
+        
         
     }
 

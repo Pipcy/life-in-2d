@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 3073a3cc0cca047cd82b485433fbdafb
   - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 996668382a3c84dcdae61f9473035a6d
+  - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/EndingWin.unity
+    guid: ac400bc3117b54ad984af13a59a2050e
+  - enabled: 1
+    path: Assets/Scenes/EndingLost.unity
+    guid: da8a1f6d105f9474292c74e87e83369d
+  - enabled: 1
+    path: Assets/Scenes/Credit.unity
+    guid: 6095534e5d6934c9c84792f85447987a
   m_configObjects: {}
