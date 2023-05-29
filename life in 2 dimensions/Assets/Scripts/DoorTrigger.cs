@@ -6,18 +6,17 @@ using TMPro;
 public class DoorTrigger : MonoBehaviour
 {
     public Button openDrawerButton;
-    public Button closeDrawerButton;
-    public Image Background;
-    public TextMeshProUGUI Clues;
+    //public Button closeDrawerButton;
+    
     
 
 
     private void Start()
     {
         openDrawerButton.gameObject.SetActive(false);
-        closeDrawerButton.gameObject.SetActive(false);
-        Background.enabled = false;
-        Clues.enabled = false;
+        
+    
+  
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -36,20 +35,23 @@ public class DoorTrigger : MonoBehaviour
         }
     }
 
-    public void OpenDrawer()
-    {
-        openDrawerButton.gameObject.SetActive(false);
-        closeDrawerButton.gameObject.SetActive(true);
-        Background.enabled = true;
-        Clues.enabled = true;
+    // public void OpenDrawer()
+    // {
+    //     openDrawerButton.gameObject.SetActive(false);
+    //     closeDrawerButton.gameObject.SetActive(true);
+    //     Background.enabled = true;
+    //     Clues.enabled = true;
+    //     Clues2.enabled = true;
 
-    }
+    // }
 
-    public void CloseDrawer()
-    {
-        closeDrawerButton.gameObject.SetActive(false);
-        Background.enabled = false;
-        Clues.enabled = false;
-    }
+    // public void CloseDrawer()
+    // {
+    //     closeDrawerButton.gameObject.SetActive(false);
+    //     Background.enabled = false;
+    //     Clues.enabled = false;
+    //     Clues2.enabled = false;
+    // }
+    
 
 }

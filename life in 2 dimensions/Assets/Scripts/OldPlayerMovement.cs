@@ -55,7 +55,7 @@ public class OldPlayerMovement : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         // Check if the player exits the enemy's range
-        if (collision.CompareTag("Enmey"))
+        if (collision.CompareTag("Enemy"))
         {
             PlayerCaught = false;
         }

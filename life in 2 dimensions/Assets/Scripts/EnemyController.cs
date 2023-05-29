@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public float speed = 5f; // Speed at which the enemy moves
     public float range = 10f; // Range within which the enemy detects the player
     public float pauseTime = 2f; // Time in seconds to pause at each waypoint
+    [SerializeField]public GameObject mark;
 
     
     // NurseCatch nurse_catch;
@@ -17,6 +18,7 @@ public class EnemyController : MonoBehaviour
     private bool isPlayerInRange = false; // Flag to check if the player is in range
     private AIPath aiPath; // Reference to the A* pathfinding AI component
     GameObject op;
+    
 
     private void Start()
     {
@@ -28,6 +30,8 @@ public class EnemyController : MonoBehaviour
         //player = GameObject.FindGameObjectWithTag("OldPlayerAll");
         op =  GameObject.Find("OldPlayer");
         OPM = op.GetComponent<OldPlayerMovement>();
+
+        mark.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -54,11 +58,14 @@ public class EnemyController : MonoBehaviour
             aiPath.enabled = true;
             // Set the destination to the current position to prevent enemy movement
             aiPath.destination = op.transform.position;
+            mark.gameObject.SetActive(true);
         }
         else
         {
             aiPath.enabled = false;
+            mark.gameObject.SetActive(false);
             Patrol();
+            
         }
     }
 
