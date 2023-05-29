@@ -30,7 +30,9 @@ public class PlayerMovement : MonoBehaviour
 
         
         anim.SetBool("run", horizontalInput != 0);
+        anim.SetBool("attack", Input.GetMouseButtonDown(0) ==true);
 
+        //if(Input.GetMouseButtonDown(0) == false) anim.SetBool("attack", false);
         // Vector2 lookDir = mousePos - body.position;
         // float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 0f;
         // body.rotation = angle;

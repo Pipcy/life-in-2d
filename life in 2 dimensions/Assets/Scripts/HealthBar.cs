@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public float maxHealth = 100f;
-    public float currentHealth = 100f;
+    public float currentHealth = 10f;
     public float healthDecreaseRate = 10f;
     public RectTransform healthBar;
 
@@ -14,6 +14,7 @@ public class HealthBar : MonoBehaviour
 
     void Start()
     {
+        currentHealth = 10f;
         initialBarWidth = healthBar.sizeDelta.x;
 
         GameObject routinee =  GameObject.Find("Routine");

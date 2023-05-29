@@ -255,8 +255,7 @@ MonoBehaviour:
   lines:
   - 'Your brain appeared to be shutting down, '
   - so are your heart.
-  - 'The doctors attempted to bring you back, your heart rate is back, but your brain
-    is permanently dead. '
+  - 'The doctors attempted to bring you back, but your brain is permanently dead. '
   - Your family members decided to put you down.
   textSpeed: 0.06
   lineDelay: 2

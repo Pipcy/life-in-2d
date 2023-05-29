@@ -14,6 +14,7 @@ public class Routine : MonoBehaviour
     public bool isDreaming = true;
 
     HealthBar health;
+    public DreamAttack DA;
     void Start()
     {
         cam1.enabled = true;
@@ -21,6 +22,9 @@ public class Routine : MonoBehaviour
 
         GameObject healthh =  GameObject.Find("Health System");
         health = healthh.GetComponent<HealthBar>();
+
+        
+
     
         // dreamAudio = GetComponent<AudioSource>();
         // realityAudio = GetComponent<AudioSource>();
@@ -34,10 +38,10 @@ public class Routine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C)) {
-         cam1.enabled = !cam1.enabled;
-         cam2.enabled = !cam2.enabled;
-        }
+        // if (Input.GetKeyDown(KeyCode.C)) {
+        //  cam1.enabled = !cam1.enabled;
+        //  cam2.enabled = !cam2.enabled;
+        // }
 
         if (Input.GetKeyDown(KeyCode.B)) {
             Dream();
@@ -60,6 +64,8 @@ public class Routine : MonoBehaviour
         cam2.enabled = false;
         
         realityAudio.Pause();
+
+        DA.TakeDamage(-4);
         
     }
 

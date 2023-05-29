@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public float range = 10f; // Range within which the enemy detects the player
     public float pauseTime = 2f; // Time in seconds to pause at each waypoint
     [SerializeField]public GameObject mark;
+    public AudioSource markAudio;
 
     
     // NurseCatch nurse_catch;
@@ -55,10 +56,12 @@ public class EnemyController : MonoBehaviour
         // If the player is in range, activate pathfinding to chase the player
         if (isPlayerInRange)
         {
+            markAudio.Play();
             aiPath.enabled = true;
             // Set the destination to the current position to prevent enemy movement
             aiPath.destination = op.transform.position;
             mark.gameObject.SetActive(true);
+            
         }
         else
         {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;//****
 
 public class DreamAttack : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class DreamAttack : MonoBehaviour
 
     void Start()
     {
-        initialBarWidth = healthBar.sizeDelta.x;
+        initialBarWidth = healthBar.sizeDelta.y;
         //sword.SpriteRenderer.enabled = false;
         currentHealth = maxHealth;
     }
@@ -30,8 +31,12 @@ public class DreamAttack : MonoBehaviour
             Attack();
         }
 
-        if(Input.GetMouseButtonDown(2))
-            TakeDamage(10);
+        // if(Input.GetMouseButtonDown(2))
+        //     TakeDamage(10);
+        if (dead){
+            SceneManager.LoadScene("EndingLost"); }
+        
+        
     }
 
     void Attack(){
@@ -60,7 +65,7 @@ public class DreamAttack : MonoBehaviour
         
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, maxHealth);
         float healthPercentage = currentHealth / maxHealth;
-        healthBar.sizeDelta = new Vector2(initialBarWidth * healthPercentage, healthBar.sizeDelta.y);
+        healthBar.sizeDelta = new Vector2(healthBar.sizeDelta.x,initialBarWidth * healthPercentage);
         if (currentHealth > 0)//7.3
         {
             //player hurt
