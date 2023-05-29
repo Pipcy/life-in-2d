@@ -7,6 +7,7 @@ public class Projectiles : MonoBehaviour
     private float direction;
     private bool hit;
     private float lifetime;
+    public AudioSource bowAudio;
 
     //private Animator anim;
     private BoxCollider2D boxCollider;
@@ -40,6 +41,7 @@ public class Projectiles : MonoBehaviour
 
     public void SetDirection(float _direction)
     {
+        bowAudio.Play();
         lifetime = 0;
         direction = _direction;
         gameObject.SetActive(true);

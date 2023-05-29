@@ -257,8 +257,8 @@ MonoBehaviour:
   - so are your heart.
   - 'The doctors attempted to bring you back, but your brain is permanently dead. '
   - Your family members decided to put you down.
-  textSpeed: 0.06
-  lineDelay: 2
+  textSpeed: 0.04
+  lineDelay: 0.8
 --- !u!114 &164983620
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("caught?"+OPM.PlayerCaught );
+        //Debug.Log("caught?"+OPM.PlayerCaught );
         if(OPM.PlayerCaught)
         {
             Debug.Log("Caught");

@@ -15,6 +15,7 @@ public class DreamAttack : MonoBehaviour
     public bool dead = false;
     private float initialBarWidth;
     public RectTransform healthBar;
+    public AudioSource damageAudio;
 
     void Start()
     {
@@ -51,9 +52,9 @@ public class DreamAttack : MonoBehaviour
             {   
                 period += UnityEngine.Time.deltaTime;
                 
-                if (period > 0.5f)//when ground color not equal to player color
+                if (period > 1f)//when ground color not equal to player color
                 {
-                    TakeDamage(2);
+                    TakeDamage(3);
                     period = 0;
                 }    
             }
@@ -62,7 +63,7 @@ public class DreamAttack : MonoBehaviour
     }
     public void TakeDamage(float _damage)
     {
-        
+        damageAudio.Play();
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, maxHealth);
         float healthPercentage = currentHealth / maxHealth;
         healthBar.sizeDelta = new Vector2(healthBar.sizeDelta.x,initialBarWidth * healthPercentage);

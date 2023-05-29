@@ -7,10 +7,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]private float speed;
     private Rigidbody2D body;
     Vector2 mousePos;
+    
 
     //for jump
     private bool grounded;
     private Animator anim;
+    
     
     void Start()
     {
