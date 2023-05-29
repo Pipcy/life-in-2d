@@ -985,7 +985,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 927358280}
         m_TargetAssemblyTypeName: Buttons, Assembly-CSharp
-        m_MethodName: Astart
+        m_MethodName: Aintro
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

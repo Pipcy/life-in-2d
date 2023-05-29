@@ -15,6 +15,9 @@ public class Buttons : MonoBehaviour
 
     public void Aintro(){
         SceneManager.LoadScene("Intro"); }
+
+    public void Atutorial(){
+        SceneManager.LoadScene("Tutorial"); }
         
     public void Astart(){
         SceneManager.LoadScene("Game"); }
